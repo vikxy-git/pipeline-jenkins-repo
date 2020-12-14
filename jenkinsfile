@@ -10,9 +10,9 @@ pipeline {
                 sh 'mvn clean package'
                  }
         }
-        stage('deploy'){
+        stage('dockerbuild'){
             steps{
-                deploy adapters: [tomcat9(credentialsId: 'tom', path: '', url: 'http://15.207.248.43:8070/')], contextPath: 'sparkjava-war-example', war: '**/*.war'
+                sh'docker build -t sushil714/project:01 .'
             }
         }
     }
