@@ -15,6 +15,11 @@ pipeline {
                 sh'docker build -t sushil714/project:01 .'
             }
         }
+        stage ('dockerpush'){
+        steps{
+          sh'docker push sushil714/project:01'
+          }
+         }
+         
     }
-
 }
