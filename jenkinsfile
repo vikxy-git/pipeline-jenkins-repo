@@ -23,5 +23,13 @@ pipeline {
           }
          }
          
+        stage('hostprune'){
+            steps{
+                sh 'docker prune'
+            }
+        }
+         
+         
     }
-}
+
+    }
