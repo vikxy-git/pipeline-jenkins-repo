@@ -25,10 +25,16 @@ pipeline {
          
         stage('hostprune'){
             steps{
-                sh 'docker image prune -f'
+                sh 'docker prune'
             }
         }
-         
+         stage('pull'){
+             steps{
+                 sshagent(['dockerserver']) {
+                  sh'ssh root@172.31.5.35 docker run -it --name project1 -p8090:8080 sushil714/project:01 sleep 11111'}
+             }
+             
+         }
          
     }
 
