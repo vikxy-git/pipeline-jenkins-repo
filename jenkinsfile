@@ -17,6 +17,7 @@ pipeline {
         }
         stage ('dockerpush'){
         steps{
+          sh'docker login -u sushil714 -p 8447784955@d'
           sh'docker push sushil714/project:01'
           }
          }
