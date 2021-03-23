@@ -17,7 +17,8 @@ pipeline {
         }
         stage ('dockerpush'){
         steps{
-          sh'docker login -u vikxydevops -p Krishna@#$1234'
+        withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) 
+         {sh"docker login -u vikxydevops -p ${dockerhub} "}
           sh'docker push vikxydevops/project:01'
           }
          }
