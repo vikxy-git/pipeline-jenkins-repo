@@ -12,14 +12,13 @@ pipeline {
         }
         stage('dockerbuild'){
             steps{
-                sh'docker build -t sushil714/project:01 .'
+                sh'docker build -t vikxydevops/project:01 .'
             }
         }
         stage ('dockerpush'){
         steps{
-          withCredentials([string(credentialsId: 'dockerhub-pass', variable: 'dockerhubpasswd')])
-          {sh"docker login -u sushil714 -p ${dockerhubpasswd} "}
-          sh'docker push sushil714/project:01'
+          sh'docker login -u vikxydevops -p Krishna@#$1234'
+          sh'docker push vikxydevops/project:01'
           }
          }
          
